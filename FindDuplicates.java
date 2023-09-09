@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class FindDuplicates {
-    public static void findDuplicatesfrom() {
+    public static void main(String[] args){
         List<String> str = new ArrayList<>();
         str.add("ramesh");
         str.add("gongura");
@@ -13,12 +13,9 @@ public class FindDuplicates {
         str.add("tanshu");
         str.add("kamala");
         List<String> dv = str.stream().collect(Collectors.groupingBy(e->e,Collectors.counting()))
-                .entrySet().stream().filter(k->k.getValue()==1)
+                .entrySet().stream().filter(k->k.getValue()>1)
                 .map(Map.Entry::getKey)
                 .toList();
         System.out.println(dv);
-    }
-    public static void main(String[] args){
-  findDuplicatesfrom();
     }
 }

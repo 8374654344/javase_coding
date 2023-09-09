@@ -1,0 +1,10 @@
+for Unique values from collection
+============================
+List<String> uv = ov.stream().distinct().toList();
+Duplicates from collection
+===========================
+List<String> dv = str.stream().collect(Collectors.groupingBy(e->e,Collectors.counting()))
+                .entrySet().stream().filter(k->k.getValue()>1)
+                .map(Map.Entry::getKey)
+                .toList();
+
