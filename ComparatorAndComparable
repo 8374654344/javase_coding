@@ -1,0 +1,43 @@
+`Comparator` and `Comparable` are two interfaces in Java used for sorting objects, but they serve different purposes and are used in different contexts:
+
+1. **Comparable**:
+   - The `Comparable` interface is implemented by a class to specify its natural ordering.
+   - When a class implements `Comparable`, it provides a way to compare instances of that class.
+   - The `compareTo` method is defined in the `Comparable` interface, and it's used to compare the current object with another object of the same class.
+   - Objects that implement `Comparable` can be sorted using methods like `Collections.sort()` or `Arrays.sort()` without specifying an external comparator.
+
+   Example of a class implementing `Comparable`:
+   ```java
+   public class Student implements Comparable<Student> {
+       private int id;
+       private String name;
+
+       // Constructor, getters, setters, and other methods...
+
+       @Override
+       public int compareTo(Student other) {
+           return Integer.compare(this.id, other.id);
+       }
+   }
+   ```
+
+2. **Comparator**:
+   - The `Comparator` interface is used to define custom comparison logic for sorting when you don't have control over the class whose objects you want to sort.
+   - It allows you to compare objects based on criteria that might not be the natural ordering of the class.
+   - You can create multiple `Comparator` implementations for the same class to enable sorting in different ways.
+
+   Example of using a `Comparator`:
+   ```java
+   List<Student> students = new ArrayList<>();
+   // Add students to the list...
+
+   // Sort students by name using a Comparator
+   students.sort(Comparator.comparing(Student::getName));
+
+   // Sort students by ID using a different Comparator
+   students.sort(Comparator.comparing(Student::getId));
+   ```
+
+In summary, `Comparable` is typically used when you want to define a default or natural ordering for a class, whereas 
+`Comparator` is used when you need to provide custom sorting criteria for a class, especially when you can't modify the class itself.
+You can use both interfaces in combination to achieve different sorting behaviors for the same class.
