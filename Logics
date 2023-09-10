@@ -1,10 +1,23 @@
 for Unique values from collection
 ============================
 List<String> uv = ov.stream().distinct().toList();
+==========================================================
 Duplicates from collection
 ===========================
 List<String> dv = str.stream().collect(Collectors.groupingBy(e->e,Collectors.counting()))
                 .entrySet().stream().filter(k->k.getValue()>1)
                 .map(Map.Entry::getKey)
                 .toList();
-
+==============================================================
+Joining strings in sentance
+==============================================================
+String str = "iamrames hfrombonv akalkhamma mdistrict";
+            String s = String.join("",str.split(" "));
+================================================================
+sum, min and max of an array
+===============================================================
+        int[] num = {2,3,4,4,5,6,8};
+        int sum = Arrays.stream(num).reduce(Integer::sum).getAsInt();
+        int max = Arrays.stream(num).reduce(Integer::max).getAsInt();
+        int min = Arrays.stream(num).reduce(Integer::min).getAsInt();
+==============================================================================
