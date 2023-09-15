@@ -1,0 +1,22 @@
+/*
+declare static variable with its return type is class type
+declare constructor with private keyword to restrict outside istantiation
+declare public static class with return type class type and check the instatiation is there are not
+*/
+public class SingleTon {
+// declaration of static variable
+
+private static SingleTon instance;
+
+// declaration of private constructor
+private SingleTon() {}
+
+//declaration of static method
+public static SingleTon getInstance() {
+if(instance == null) {
+instance = new SingleTon();
+}
+return instance;
+}
+}
+
