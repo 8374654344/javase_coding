@@ -48,3 +48,16 @@ String str = "aaabbaacdddaaeefgbbbbb"; //a7b2c1d3e2f1g1
 Repeatable words
 */
 Arrays.stream(str.split(" ")).filter(s -> s.equals(getSearch)).count();
+Q1. after concatenating what is the size of string?
+sort the employee data using streams
+Rest API document
+how to destructure the string in js
+can we change the literal in const object?
+how to avoid mutating the object with const key word. ans. use object.freez();
+what is the difference between javascript, typescript
+what is the difference between qualifier and primary in spring boot
+how to handle async methods in spring boot
+
+
+
+
